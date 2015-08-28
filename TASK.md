@@ -9,6 +9,8 @@ some bullet points below, but feel free to go as far as you want but make sure t
 to javascript, html, css and avoid using large frameworks and limit yourself to libs/plugins. I am sure you are an awesome programmer and javascript
 ninja, show it! :)
 
+The data is fetched from Markit On Demand API and the documentation for that API can be found [here](http://dev.markitondemand.com/).
+
 ## Ideas for improvement
 
 * Some basic form of input validation.
