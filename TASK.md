@@ -23,8 +23,8 @@ The data is fetched from Markit On Demand API and the documentation for that API
 
 ## Technical Requirements
 
-* Keep in mind that if decide to use a framework like AngularJS or Backbone it solves to many of the basic problems relating to structure, conventions and gives a lot of features for "free". For us to be able to judge your submission we must be able to read code that you have written yourself showing architecture, structure, correctness etc. This means your will then have to show of the ability to write such code in the actual application logic.
-* Libraries > Frameworks
+* Keep in mind that if you decide to use a framework like AngularJS or Backbone it solves to many of the basic problems relating to structure, conventions and gives a lot of features for "free". For us to be able to judge your submission we must be able to read code that you have written yourself showing architecture, structure, correctness etc. This means your will then have to show of the ability to write such code in the actual application logic.
+* Libraries !== Frameworks
 * Please fork this repository and make all your changes on the fork with a branching strategy you see fit. Once completed make a pull request targeted at the master branch of this repository containing all your changes.
 * Don't forget things like linting, testing etc. There are tools like Grunt, Gulp and others out there that can help you.
-* Keep in mind that you should write code that is targeting **Google Chrome 45.0** and **Firefox v41.0.1**, So no need to care about legacy things. Show us the new cool stuff :)
+* Keep in mind that you should write code that is targeting **Google Chrome 45.0** and **Firefox v41.0.1**, So no need to care about legacy things. Show us the good stuff :)
