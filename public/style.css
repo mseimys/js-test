@@ -10,3 +10,6 @@ td.minus {
 tr.selected {
     background: #EEF;
 }
+#quote-info {
+    white-space: pre;
+}

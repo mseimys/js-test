@@ -1,4 +1,4 @@
-/** 
+/**
  * Version 2.0
  */
 var Markit = {};
@@ -14,7 +14,7 @@ Markit.InteractiveChartApi = function(symbol,duration){
 };
 
 Markit.InteractiveChartApi.prototype.PlotChart = function(){
-    
+
     var params = {
         parameters: JSON.stringify( this.getInputParams() )
     }
@@ -43,7 +43,7 @@ Markit.InteractiveChartApi.prototype.PlotChart = function(){
 };
 
 Markit.InteractiveChartApi.prototype.getInputParams = function(){
-    return {  
+    return {
         Normalized: false,
         NumberOfDays: this.duration,
         DataPeriod: "Day",
@@ -126,9 +126,9 @@ Markit.InteractiveChartApi.prototype.render = function(data) {
 
     // create the chart
     $('#chartDemoContainer').highcharts('StockChart', {
-        
+
         rangeSelector: {
-            selected: 1
+            selected: 3
             //enabled: false
         },
 
@@ -151,7 +151,7 @@ Markit.InteractiveChartApi.prototype.render = function(data) {
             offset: 0,
             lineWidth: 2
         }],
-        
+
         series: [{
             type: 'candlestick',
             name: this.symbol,
