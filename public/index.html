@@ -18,12 +18,12 @@
                 </div>
             </form>
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-5">
                     <table class="table table-hover table-bordered" id="results-table">
                         <thead>
                             <tr>
-                              <th>Name</th>
                               <th>Symbol</th>
+                              <th>Name</th>
                               <th>Change % YTD</th>
                             </tr>
                         </thead>
@@ -31,13 +31,18 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="col-md-6">
-                    <pre id="company-info">
-                    </pre>
+                <div class="col-md-7">
+                    <div id="chartDemoContainer" style="height: 400px; min-width: 300px; margin-bottom: 30px;"></div>
+                    <pre id="quote-info"></pre>
                 </div>
             </div>
         </div>
         <script type="text/javascript" src="./vendor/jquery/jquery-2.1.4.min.js"></script>
+        <script src="http://code.highcharts.com/stock/highstock.js"></script>
+        <script src="http://code.highcharts.com/stock/modules/exporting.js"></script>
+        <script type="text/javascript" src="./resources/InteractiveChartApi.js"></script>
         <script type="text/javascript" src="./application.js"></script>
+        <script type="text/javascript">
+</script>
     </body>
 </html>

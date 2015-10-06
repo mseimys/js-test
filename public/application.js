@@ -4,6 +4,7 @@
 
     function Company(data){
         var self = this;
+        var duration = 3650;
 
         self.name = data.Name;
         self.symbol = data.Symbol;
@@ -14,12 +15,16 @@
         self.element.append(changeElement);
 
         self.element.on('click', function(){
-            try {
-                $('#company-info').text(JSON.stringify(self.quote, null, 4));
-            } catch(ex) {
-                $('#company-info').text(ex);
-            }
+            $('td').removeClass('selected');
+            self.element.addClass('selected');
+            $('#quote-info').text(JSON.stringify(self.quote, null, 4));
+            new Markit.InteractiveChartApi(self.symbol, duration);
         })
+
+        function showChart(selector, symbol){
+            console.log(selector, symbol);
+            $(selector).text(symbol);
+        }
 
         function processQuoteData(data){
             var changeAmount = data.ChangePercentYTD.toFixed(2);
@@ -30,33 +35,38 @@
             }
             changeElement.text(changeAmount);
         }
+
         $.getJSON('Api/v2/Quote/json', {symbol: self.symbol}).then(function(data){
             self.quote = data;
             processQuoteData(data);
         }).fail(function(jqXHR, textStatus, errorThrown){
+            // When too many requests, sometimes we exceed the limit
             changeElement.text('N/A');
         });
     }
 
-    function CompanyList(dest){
+    var companylist = (function(){
         var companies = [];
-        var table = $(dest);
-        var rows = $(dest).find('tbody');
+        var table, rows;
 
-        this.addCompany = function(name) {
-            var new_company = new Company(name);
-            companies.push(new_company);
-            rows.append(new_company.element);
+        return {
+            init: function(dest) {
+                table = $(dest);
+                rows = table.find('tbody');
+            },
+            addCompany: function(name) {
+                var new_company = new Company(name);
+                companies.push(new_company);
+                rows.append(new_company.element);
+            },
+            clear: function(){
+                rows.empty();
+                companies = [];
+            }
         }
-        this.clear = function(){
-            rows.empty();
-            companies = [];
-        }
-    };
+    })();
 
-    var companylist = new CompanyList('#results-table');
-
-    function initializeUI(){
+    $(document).ready(function () {
         var $loading = $('#spinner').hide();
         $(document)
             .ajaxStart(function () {
@@ -65,9 +75,9 @@
             .ajaxStop(function () {
                 $loading.hide();
             });
-    }
 
-    $(document).ready(function () {
+        companylist.init('#results-table');
+
         function getCompanySymbol(input) {
             return $.getJSON('Api/v2/Lookup/json', {input: input});
         }
@@ -90,7 +100,6 @@
             }
 
             getCompanySymbol(nameValue).then(function(data){
-                console.log(data);
                 companylist.clear()
                 for (var i in data) {
                     companylist.addCompany(data[i]);
@@ -98,7 +107,6 @@
             });
         });
 
-        initializeUI();
     });
 
 }());

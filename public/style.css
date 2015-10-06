@@ -7,3 +7,6 @@ td.plus {
 td.minus {
     color: #900;
 }
+tr.selected {
+    background: #EEF;
+}
