@@ -12,7 +12,7 @@ var proxy = httpProxy.createProxyServer();
 expressApplication.use(compression());
 expressApplication.use(express.static(path.join(__dirname, 'public')));
 
-expressApplication.listen(8081, function () {
+expressApplication.listen(8080, function () {
    console.log('server is up and running waiting for you on http://localhost:8080. happy coding!');
 });
 

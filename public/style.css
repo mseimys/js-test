@@ -1,3 +1,9 @@
 .company-name {
     min-width: 250px;
 }
+td.plus {
+    color: #090;
+}
+td.minus {
+    color: #900;
+}
