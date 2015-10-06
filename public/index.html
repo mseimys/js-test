@@ -3,16 +3,24 @@
     <head>
         <meta charset="UTF-8">
         <title>js-test</title>
-
+        <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
         <link type="text/css" rel="stylesheet" href="./style.css"/>
     </head>
     <body>
-        <div class="content">
-            <input type="text" class="search-input" placeholder="Enter a company name, ex: Netflix"/>
-            <input type="button" class="search-button" value="Search">
+        <div class="container">
+            <h1>Business Finder <small>If you can't find it - it doesn't exist!</small></h1>
+            <form id="search-form" class="form-inline">
+                <div class="form-group">
+                    <input type="text" class="form-control company-name" placeholder="Company name, eg: Netflix">
+                    <button type="submit" class="btn btn-default">Search</button>
+                    <img id="spinner" src="./imgs/loader.gif">
+                    <span class="help-block"></span>
+                </div>
+            </form>
             <pre class="result">
-
             </pre>
+            <div id="results">
+            </div>
         </div>
         <script type="text/javascript" src="./vendor/jquery/jquery-2.1.4.min.js"></script>
         <script type="text/javascript" src="./application.js"></script>
